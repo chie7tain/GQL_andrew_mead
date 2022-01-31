@@ -29,6 +29,8 @@ const server = createServer({
     typeDefs: /* GraphQL */ `
       type Query {
         me: User!
+        post: Post!
+        greeting(name: String): String!
       }
       type User {
         id: ID!
@@ -36,14 +38,27 @@ const server = createServer({
         email: String!
         age: Int
       }
+      type Post {
+        id: ID!
+        title: String!
+        body: String!
+        published: Boolean!
+      }
     `,
     resolvers: {
       Query: {
+        greeting: (parent, args, ctx, info) => console.log(args),
         me: () => ({
           id: "abc123",
           name: "james bond",
           email: "james bond@gmail.com",
           age: 32,
+        }),
+        post: () => ({
+          id: "1234",
+          title: "hello world",
+          body: "this is my first post",
+          published: true,
         }),
       },
     },
