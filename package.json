@@ -16,5 +16,7 @@
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@graphql-yoga/node": "^0.1.0-alpha.3"
+  }
 }
