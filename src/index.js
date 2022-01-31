@@ -28,20 +28,23 @@ const server = createServer({
   schema: {
     typeDefs: /* GraphQL */ `
       type Query {
-        title: String!
-        price: String!
-        releaseYear: Int
-        rating: Float
-        inStock: Boolean
+        me: User!
+      }
+      type User {
+        id: ID!
+        name: String!
+        email: String!
+        age: Int
       }
     `,
     resolvers: {
       Query: {
-        title: () => "Iphone X",
-        price: () => "$ 1000usd",
-        releaseYear: () => 2019,
-        rating: () => 4.5,
-        inStock: () => true,
+        me: () => ({
+          id: "abc123",
+          name: "james bond",
+          email: "james bond@gmail.com",
+          age: 32,
+        }),
       },
     },
   },
